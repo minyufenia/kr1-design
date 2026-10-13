@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Графический дизайн — главная</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a id="top"></a>
+    <header class="site-header">
+        <!-- Графическая ссылка на начальную страницу -->
+        <a href="index.html" class="logo"><img src="images/logo.png" alt="На главную" width="40" height="40"></a>
+        <nav>
+            <ul class="menu">
+            <li><a href="index.html" class="active">Главная</a></li>
+            <li><a href="directions.html">Направления</a></li>
+            <li><a href="typography.html">Типографика</a></li>
+            <li><a href="tools.html">Инструменты</a></li>
+            <li><a href="directions.html#color">Цветовой круг</a></li>
+            <li><a href="forms.html">Формы</a></li>
+            <li><a href="dom.html">Паспорт: DOM</a></li>
+            <li><a href="latin.html">Паспорт: латиница</a></li>
+            <li><a href="task.html">Задача 1012</a></li>
+            <li><a href="https://www.hse.ru/" target="_blank">ВШЭ ↗</a></li>
+            <li><a href="https://www.behance.net/" target="_blank"><img src="images/external.png" alt="Behance" width="20" height="20"> Behance</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Графический дизайн</h1>
+        <p class="lead">Сайт о том, как устроен графический дизайн: из чего складывается хорошая композиция, какие бывают направления и чем пользуются дизайнеры каждый день.</p>
+
+        <!-- Навигация по закладкам внутри страницы -->
+        <div class="page-nav">
+            <a href="#what">Раздел 1. Что это такое</a>
+            <a href="#principles">Раздел 2. Принципы композиции</a>
+            <a href="#career">Раздел 3. Кем работать</a>
+            <a href="#top">К началу</a>
+        </div>
+
+        <h2 id="what">Раздел 1. Что такое графический дизайн</h2>
+        <div class="two-cols">
+            <div>
+                <p>Графический дизайн — это работа с изображением и текстом, чтобы передать сообщение понятно и красиво. Логотип, афиша, упаковка, интерфейс приложения — всё это результат работы графического дизайнера.</p>
+                <p>Основа любого макета — <b>модульная сетка</b>: невидимая разметка из колонок и строк, по которой выравниваются все элементы.</p>
+            </div>
+            <figure>
+                <img src="images/grid.png" alt="Модульная сетка" width="400" height="300">
+                <figcaption>Модульная сетка 4 × 3: синий блок занимает 2 × 2 модуля, текст выровнен по колонкам.</figcaption>
+            </figure>
+        </div>
+        <a href="#top" class="to-top"><img src="images/up.png" alt="" width="20" height="20"> К началу страницы</a>
+
+        <h2 id="principles">Раздел 2. Принципы композиции</h2>
+        <p>Нумерованный список с вложенными пунктами:</p>
+        <ol>
+            <li>Иерархия
+                <ol>
+                    <li>самое важное — самое крупное</li>
+                    <li>второстепенное — мельче и спокойнее</li>
+                </ol>
+            </li>
+            <li>Контраст
+                <ol>
+                    <li>по размеру</li>
+                    <li>по цвету</li>
+                    <li>по насыщенности шрифта</li>
+                </ol>
+            </li>
+            <li>Выравнивание</li>
+            <li>Повтор и ритм</li>
+            <li>Воздух (пустое пространство)</li>
+        </ol>
+        <a href="#top" class="to-top"><img src="images/up.png" alt="" width="20" height="20"> К началу страницы</a>
+
+        <h2 id="career">Раздел 3. Кем работает графический дизайнер</h2>
+        <p>Ненумерованный список с вложенными пунктами:</p>
+        <ul>
+            <li>В студии или агентстве
+                <ul>
+                    <li>брендинг и фирменный стиль</li>
+                    <li>рекламные кампании</li>
+                </ul>
+            </li>
+            <li>В продуктовой компании
+                <ul>
+                    <li>интерфейсы приложений</li>
+                    <li>иллюстрации и иконки</li>
+                </ul>
+            </li>
+            <li>На фрилансе</li>
+        </ul>
+        <a href="#top" class="to-top"><img src="images/up.png" alt="" width="20" height="20"> К началу страницы</a>
+    </main>
+
+    <footer>Кукса Полина, группа 3 · Основы web-технологий, КР1 · 2026</footer>
+</body>
+</html>

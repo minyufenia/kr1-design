@@ -1,0 +1,323 @@
+/* ===== Общие стили для всех страниц сайта ===== */
+
+/* Цвета сайта: бумага, чернила и три акцентных цвета */
+:root {
+    --paper: #f4f1ea;
+    --ink: #1a1a1a;
+    --red: #e2462c;
+    --blue: #2b4cdb;
+    --yellow: #f2c230;
+    --grey: #8a857b;
+}
+
+body {
+    margin: 0;
+    background-color: var(--paper);
+    color: var(--ink);
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.55;
+}
+
+/* ===== Шапка и навигация (одинаковая на всех страницах) ===== */
+.site-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background-color: var(--ink);
+}
+
+.logo img {
+    display: block;
+}
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.menu a {
+    display: inline-block;
+    padding: 6px 8px;
+    color: var(--paper);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.menu a img {
+    vertical-align: middle;
+}
+
+/* Наведение мышкой на пункт меню */
+.menu a:hover {
+    background-color: var(--yellow);
+    color: var(--ink);
+}
+
+/* Текущая страница — выделена красным (пункт 5 требований) */
+.menu a.active {
+    background-color: var(--red);
+    color: var(--paper);
+    font-weight: bold;
+}
+
+/* ===== Основное содержимое ===== */
+main {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 32px 24px 64px;
+}
+
+h1 {
+    font-size: 44px;
+    line-height: 1.1;
+    margin: 0 0 16px;
+}
+
+h2 {
+    font-size: 28px;
+    margin: 48px 0 12px;
+    padding-top: 12px;
+    border-top: 4px solid var(--ink);
+}
+
+.lead {
+    font-size: 20px;
+    max-width: 680px;
+}
+
+a {
+    color: var(--blue);
+}
+
+/* Навигация внутри страницы по закладкам (пункт 6) */
+.page-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 24px 0;
+    padding: 12px;
+    background-color: #fff;
+    border-left: 6px solid var(--yellow);
+}
+
+.page-nav a {
+    padding: 2px 8px;
+    color: var(--ink);
+}
+
+/* Ссылка «К началу» в конце каждого раздела */
+.to-top {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 12px;
+    color: var(--ink);
+    font-size: 14px;
+}
+
+/* Картинки с подписями */
+figure {
+    margin: 20px 0;
+}
+
+figure img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #d9d3c6;
+}
+
+figcaption {
+    font-size: 14px;
+    color: var(--grey);
+}
+
+.two-cols {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    align-items: flex-start;
+}
+
+.two-cols > * {
+    flex: 1 1 280px;
+}
+
+/* ===== Таблица (пункт 10) ===== */
+.tools-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-image: url("images/table_bg.png");  /* картинка на фоне всей таблицы */
+    background-size: 300px;
+}
+
+.tools-table th,
+.tools-table td {
+    padding: 10px;
+    border: 2px solid var(--ink);
+    vertical-align: middle;
+}
+
+.tools-table th {
+    background-color: var(--ink);
+    color: var(--paper);
+    text-align: left;
+}
+
+/* ===== Формы ===== */
+form {
+    padding: 20px;
+    background-color: #fff;
+    border: 2px solid var(--ink);
+}
+
+form label {
+    display: block;
+    margin: 10px 0;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="number"],
+input[type="date"],
+input[type="password"],
+textarea {
+    padding: 6px 8px;
+    font-size: 16px;
+    border: 1px solid var(--grey);
+}
+
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+    padding: 8px 16px;
+    font-size: 16px;
+    border: 2px solid var(--ink);
+    background-color: var(--yellow);
+    cursor: pointer;
+}
+
+input[type="reset"] {
+    background-color: #fff;
+}
+
+.note {
+    padding: 12px 16px;
+    background-color: #fff;
+    border-left: 6px solid var(--blue);
+    margin: 16px 0;
+}
+
+code {
+    font-family: Menlo, Consolas, monospace;
+    font-size: 14px;
+    background-color: #ebe6da;
+    padding: 1px 4px;
+}
+
+/* ===== Паспорт (страницы 2 и 3) ===== */
+.passport {
+    width: 420px;
+    max-width: 100%;
+    border: 1px solid #b9a8a8;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.passport-page {
+    position: relative;
+    padding: 18px 24px 18px 24px;
+    /* розоватый фон с узором, как на настоящем паспорте */
+    background-color: #f6e9e6;
+    background-image: repeating-radial-gradient(circle at 30% 40%, #f6e9e6 0, #f6e9e6 6px, #efdcd8 7px, #f6e9e6 8px);
+    min-height: 250px;
+}
+
+.passport-page + .passport-page {
+    border-top: 2px dashed #c9a9a4;
+}
+
+.passport-title {
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #7a5b57;
+    margin-bottom: 10px;
+}
+
+/* Каждое поле паспорта — это абзац <p>: подпись + <span> со значением */
+.passport-page p {
+    margin: 6px 0;
+    font-size: 11px;
+    color: #7a5b57;
+}
+
+.passport-page p span {
+    display: block;
+    font-family: "Courier New", monospace;
+    font-size: 17px;
+    font-weight: bold;
+    color: #1d1d1d;
+    border-bottom: 1px solid #c9a9a4;
+}
+
+/* Дата рождения: день.месяц и год стоят в одной строке */
+.passport-page p.birth span {
+    display: inline;
+    border-bottom: none;
+}
+
+.passport-photo {
+    float: left;
+    width: 100px;
+    margin: 4px 16px 8px 0;
+    border: 1px solid #c9a9a4;
+}
+
+.passport-fields {
+    overflow: hidden;
+}
+
+/* Серия и номер — вертикально красным справа */
+.passport-number {
+    position: absolute;
+    right: 4px;
+    top: 30px;
+    writing-mode: vertical-rl;
+    color: #c0262d;
+    font-family: "Courier New", monospace;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* ===== Задача ===== */
+.task-form li {
+    margin: 10px 0;
+}
+
+.task-form ul {
+    list-style: none;
+    padding: 0;
+}
+
+#result {
+    padding: 6px 8px;
+    font-size: 16px;
+    width: 320px;
+    max-width: 100%;
+    font-weight: bold;
+}
+
+footer {
+    padding: 20px 24px;
+    background-color: var(--ink);
+    color: var(--grey);
+    font-size: 14px;
+    text-align: center;
+}
