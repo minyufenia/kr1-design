@@ -2,7 +2,7 @@
 
 Кукса Полина Дмитриевна, группа 3 — дисциплина «Основы web-технологий».
 
-Сайт: https://ИМЯ_ПОЛЬЗОВАТЕЛЯ.github.io/kr1-design/
+Сайт: https://minyufenia.github.io/kr1-design/
 
 ## Страницы
 - `index.html`, `directions.html`, `typography.html`, `tools.html` — информационные страницы
