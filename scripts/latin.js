@@ -1,15 +1,20 @@
-// Меняем фамилию, имя и год рождения в паспорте на латиницу по клику на кнопку
+// Меняем ВЕСЬ паспорт (все данные и подписи) на латиницу по клику на кнопку
 
-// Находим нужные элементы по id
-const surname = document.getElementById("surname");
-const firstName = document.getElementById("name");
-const year = document.getElementById("year");
+// Находим все значения в паспорте (каждое лежит в <span>) и заголовок
+const values = document.querySelectorAll(".passport span, .passport-title");
+// Находим все поля паспорта (<p>): в начале каждого стоит подпись, например «Фамилия»
+const fields = document.querySelectorAll(".passport p");
 const button = document.getElementById("change");
 
-// Запоминаем исходные (кириллические) значения, чтобы потом вернуть их
-const originalSurname = surname.innerText;
-const originalName = firstName.innerText;
-const originalYear = year.innerText;
+// Запоминаем исходные (кириллические) тексты, чтобы потом вернуть их
+const originalValues = [];
+for (let i = 0; i < values.length; i++) {
+    originalValues.push(values[i].innerText);
+}
+const originalLabels = [];
+for (let i = 0; i < fields.length; i++) {
+    originalLabels.push(fields[i].childNodes[0].textContent);
+}
 
 let isLatin = false;  // сейчас на странице кириллица
 
@@ -22,14 +27,27 @@ const letters = {
     "ъ": "ie", "ы": "y", "ь": "", "э": "e", "ю": "iu", "я": "ia"
 };
 
-// Переводит слово в латиницу: идём по буквам и заменяем каждую по словарю
+// Подписи полей на английском, как в загранпаспорте
+const labels = {
+    "Паспорт выдан": "Issued by",
+    "Дата выдачи": "Date of issue",
+    "Код подразделения": "Authority code",
+    "Фамилия": "Surname",
+    "Имя": "Given name",
+    "Отчество": "Patronymic",
+    "Пол": "Sex",
+    "Дата рождения": "Date of birth",
+    "Место рождения": "Place of birth"
+};
+
+// Переводит текст в латиницу: идём по буквам и заменяем каждую по словарю
 function toLatin(text) {
     let res = "";
     for (let letter of text.toLowerCase()) {
         if (letter in letters) {
             res = res + letters[letter];
         } else {
-            res = res + letter;  // не русская буква — оставляем как есть
+            res = res + letter;  // цифры, точки, пробелы оставляем как есть
         }
     }
     return res.toUpperCase();
@@ -37,13 +55,13 @@ function toLatin(text) {
 
 // Переводит число в римские (латинские) цифры: 2008 -> MMVIII
 function toRoman(number) {
-    const values = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+    const nums = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
     const symbols = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"];
     let res = "";
-    for (let i = 0; i < values.length; i++) {
-        while (number >= values[i]) {
+    for (let i = 0; i < nums.length; i++) {
+        while (number >= nums[i]) {
             res = res + symbols[i];
-            number = number - values[i];
+            number = number - nums[i];
         }
     }
     return res;
@@ -51,15 +69,28 @@ function toRoman(number) {
 
 function changeAll() {
     if (isLatin === false) {
-        surname.innerText = toLatin(originalSurname);            // KUKSA
-        firstName.innerText = toLatin(originalName);                  // POLINA
-        year.innerText = toRoman(parseInt(originalYear));        // MMVIII
+        // Все значения -> латиница, год рождения -> римские цифры
+        for (let i = 0; i < values.length; i++) {
+            if (values[i].id === "year") {
+                values[i].innerText = toRoman(parseInt(originalValues[i]));
+            } else {
+                values[i].innerText = toLatin(originalValues[i]);
+            }
+        }
+        // Все подписи -> английский
+        for (let i = 0; i < fields.length; i++) {
+            fields[i].childNodes[0].textContent = labels[originalLabels[i]];
+        }
         button.innerText = "Вернуть кириллицу";
         isLatin = true;
     } else {
-        surname.innerText = originalSurname;
-        firstName.innerText = originalName;
-        year.innerText = originalYear;
+        // Возвращаем всё, что запомнили в начале
+        for (let i = 0; i < values.length; i++) {
+            values[i].innerText = originalValues[i];
+        }
+        for (let i = 0; i < fields.length; i++) {
+            fields[i].childNodes[0].textContent = originalLabels[i];
+        }
         button.innerText = "Перевести на латиницу";
         isLatin = false;
     }
